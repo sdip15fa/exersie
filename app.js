@@ -44,7 +44,7 @@ app.post('/users', async (req, res) => {
     const hash = await bcrypt.hash(password, 12)
     const user = new User({name, password:hash})
     await user.save()
-    res.redirect('/users')
+    res.redirect('/game')
     }
     catch(err) {
         console.log(err)
