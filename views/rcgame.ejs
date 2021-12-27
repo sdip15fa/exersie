@@ -1,0 +1,55 @@
+<%- include('partials/header') %></head>
+
+<body>
+        <div id="container">
+            <h1>Guess a char  A - Z</h1>
+            <p id ="outputtext">Enter a char </p>
+            <input  type="text" maxlength="1" size="1" name ="num" id="userinput" />
+            <button id ="btn">enter</button>
+            <h2 id ="lives">let play game</h2>
+
+        </div>
+        <script src="new.js"></script>
+    <script>
+    let b = "abcdefghijklmnopqrstvwxyz"
+    const charData = b.split("")
+    let char1 = Math.floor(Math.random() * (25) + 0);
+    let charGen = charData[char1].toUpperCase();
+    let live = 6
+    console.log(charGen);
+    let btn = document.getElementById('btn')
+    let output = document.getElementById('outputtext')
+    let lives = document.getElementById('lives')
+ 
+ 
+ btn.addEventListener('click', function() {
+    let input = document.getElementById('userinput').value.toUpperCase()
+    console.log(input);
+    if (live > 0){
+        if (input == charGen ) {
+            output.innerHTML = `u win live is ${live}`
+            lives.innerHTML = `<a href="/"><h2>play new game</h2></a>play a new game`
+        } else if (input != charGen){
+            live--;
+            output.innerHTML = `u guess ${input} is wrong,live is ${live}`
+            lives.innerHTML = ``
+        }
+    } else {
+        lives.innerHTML = `<a href="/"><h2>play new game</h2></a>u a loser, play a new game`
+    }
+        console.log(live)
+        
+    
+
+    
+})
+    </script>
+<nav>    <form action="/logout" method="post">
+    <button>logout</button>
+</form>
+<a href="/rngame">猜數字</a>
+<a href="/rcgame">猜單字</a>
+</nav>
+</body>
+</html>
+

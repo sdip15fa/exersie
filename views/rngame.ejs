@@ -1,0 +1,39 @@
+<%- include('partials/header') %></head>
+
+<body>
+        <div id="container">
+            <h1>Guess a number 1- 100</h1>
+            <p id ="outputtext">Enter a number </p>
+            <input  type="number" min="0" max="100" name ="num" id="userinput" />
+            <button id ="btn">enter</button>
+            <a href="/"><h2>play new game</h2></a>
+
+        </div>
+        <script src="new.js"></script>
+    <script>
+         let number =  Math.floor(Math.random() * (100) + 1)
+ console.log(number)
+let btn = document.getElementById('btn')
+    let output = document.getElementById('outputtext')
+ 
+ 
+ btn.addEventListener('click', function() {
+    let input = document.getElementById('userinput').value
+    console.log(input)
+    if (input == number) {
+       output.innerHTML = "oh you win"
+    } else if (input > number ) {
+       output.innerHTML = `oh u number ${input} is big `
+    } else {
+       output.innerHTML = `oh u number ${input} is small `
+    }
+})
+    </script>
+<nav>    <form action="/logout" method="post">
+   <button>logout</button>
+</form>
+<a href="/rngame">猜數字</a>
+<a href="/rcgame">猜單字</a>
+</nav>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<%- include('partials/header') %></head>
+
+<body>
+    <h1>sign up a new acc</h1>
+    <form action="/users/<%= user._id%>?_method='PUT'" method="POST">
+        <input type="text" id="name" name="name" placeholder="you name" value="<%= user.name%>">
+        <input type="text" name="password" placeholder="you password" value="<%= user.password%>">
+        <button>submit</button>
+    </form>
+</body>
+</html>

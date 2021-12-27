@@ -1,0 +1,19 @@
+<%- include('partials/header') %></head>
+
+<body>
+    <h1>user</h1>
+    <ul>
+        <% for(let users of user) { %>
+            <li><a href="/users/<%= users.id%>"><%= users.name%></a></li>
+            <% } %>
+    </ul>
+    <ul>
+        <% for(let users of user) { %>
+            <li><%= users%></li>
+            <% } %>
+    </ul>
+    <p>
+    </p>
+    <a href="/users/new">sign up a new user</a>
+</body>
+</html>
