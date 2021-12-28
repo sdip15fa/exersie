@@ -148,5 +148,5 @@ mongoose.connect(dbURI)
 //      .catch(err => console.log(`wrong number ${err}` ))
 
 app.listen(2999, () =>{
-    console.log("server on")
+        console.log("server on http://localhost:2999/")
 })
