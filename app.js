@@ -57,15 +57,20 @@ app.get('/' , (req, res) => {
     res.redirect('login')
  })
  app.post('/login', async (req, res) => {
+    try {
     const { name , password} = req.body
     const user = await User.findOne( {name})
     const vaildPassword =await bcrypt.compare(password, user.password)
     if(vaildPassword) {
         req.session.user_id = user._id
         res.render('game')
-    }else {
+    }
+else {
         res.send('try again')
     }
+}catch(err) {
+    res.send('try again')
+}
  })
  app.post('/logout', (req , res) => {
     req.session.user_id = null
@@ -143,5 +148,5 @@ mongoose.connect(dbURI)
 //      .catch(err => console.log(`wrong number ${err}` ))
 
 app.listen(2999, () =>{
-    console.log("server on")
+        console.log("server on http://localhost:2999/")
 })
